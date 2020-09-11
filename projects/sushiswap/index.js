@@ -37,13 +37,8 @@ async function tvl(timestamp, block) {
   if (SUSHI in balances) {
     balances[SUSHI] += sushiBar.output;
   }
-  else {
+  else if (sushiBar.output > 0) {
     balances[SUSHI] = sushiBar.output;
-  }
-
-  // Add 0 ETH balance if undefined
-  if (!(ETH in balances)) {
-    balances[ETH] = '0';
   }
 
   console.log(balances)
